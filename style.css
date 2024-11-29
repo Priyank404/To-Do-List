@@ -1,0 +1,59 @@
+*{
+    padding: 0;
+    margin: 0;
+    background-color: #d9ed92;
+}
+.title{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 7vh;
+    font-size: .8rem;
+    /* background-color: #495057; */
+    border: 1px solid black;
+}
+.todolist{
+    height: 30vh;
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#newTask{
+    width: 20%;
+    height: 5vh;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#addButton{
+    height: 30px;
+    margin-top: 20px;
+    width: 20vh;
+    border-radius: 20px;
+    background-color: red;    
+}
+
+
+.taskList{
+    height: 100vh;
+    margin-left: 20px;
+    /* background-color: aqua; */
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+li{
+    margin: 5px;
+    cursor: pointer;
+    list-style-type: disc;
+    margin-left: 20px;
+    padding-left: 20px;
+}
+li:hover{
+    font-size: 30px;
+}
