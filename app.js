@@ -5,9 +5,10 @@ const list=document.querySelector(".taskList");
 let task=[];
 
 function addTask(){
-    const taskText=input.value;
+    const taskText=input.value.trim();
     if(taskText){
         task.push({Text:taskText,completed:false});
+        // console.log(task);
         input.value="";
     }
     displayTask();
@@ -22,14 +23,25 @@ function displayTask(){
         if(task.completed){
          li.classList.add("completed")   
         }
-        li.addEventListener("click",()=>toggleTaskCompltion(index));
+        li.addEventListener("click",()=>toggleTaskCompletion(index));
+        const deleteButton=document.createElement("button");
+        deleteButton.innerText="delete";
+        deleteButton.style.marginLeft="50px";
+        deleteButton.classList.add("deleteButton");
+        deleteButton.addEventListener("click",(e)=>{
+            e.stopPropagation();
+            deleteTask(index);
+        })
+        
+        li.appendChild(deleteButton);
         list.appendChild(li);
     })
 }
 
-function toggleTaskCompltion(index){
+function toggleTaskCompletion(index){
     task[index].completed=!task[index].completed;
-    displayTask()
+    displayTask();
+    saveTask();
 }
 
 function saveTask(){
@@ -45,5 +57,10 @@ function loadTask(){
 }
 
 button.addEventListener("click",addTask);
-window.addEventListener("load",loadTask)
+window.addEventListener("load",loadTask);
 
+function deleteTask(index){
+    task.splice(index,1);
+    displayTask();
+    saveTask();
+}
